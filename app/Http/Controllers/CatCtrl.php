@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Requests\CategoryReq;
+use Validator;
+use App\Models\Categorie;
+
+class CatCtrl extends Controller
+{
+    public function CategoryView(){
+
+        $data = Categorie::paginate(50);
+        return view('admin.Category', compact('data'));
+    }
+
+    public function AddCategory(Request $req){
+        $validate = Validator::make($req->all(),[
+            'name' => 'required',
+            'description' => 'required',
+            'meta_title' => 'required',
+            'meta_description' => 'required'
+        ]);
+        if($validate->passes()){
+            $data = Categorie::create($req->all());
+            $response = $data ? response()->json(['response' => 'added'],201) : response()->json(['response' => 'category could not be saved'],401);
+            return $response;
+            
+        }
+        return response()->json(['error_message' => $validate->errors()]);
+        
+    }
+
+    public function delCat($id){
+        return $id;
+    }
+
+
+}
