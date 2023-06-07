@@ -97,6 +97,13 @@
 
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script>
+
+  // $.ajaxSetup({
+  //     headers: {
+  //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //     }
+  // });
+
   $(document).ready(function(){
 
     $('.add_cat').on('click', function(e){
@@ -125,10 +132,10 @@
             $('.message').html(JSON.parse(JSON.stringify(data.response))).slideDown().delay(3000).slideUp();
             
           }else{
-            const name = data.error_message.name;
-            const description = data.error_message.description;
-            const meta_title = data.error_message.meta_title;
-            const meta_description = data.error_message.meta_description;
+            const name = data.validation_error.name;
+            const description = data.validation_error.description;
+            const meta_title = data.validation_error.meta_title;
+            const meta_description = data.validation_error.meta_description;
 
             $('.name').html(name);
             $('.description').html(description);

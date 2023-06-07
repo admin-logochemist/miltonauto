@@ -28,7 +28,7 @@ class CatCtrl extends Controller
             return $response;
             
         }
-        return response()->json(['error_message' => $validate->errors()]);
+        return response()->json(['validation_error' => $validate->errors()]);
         
     }
 

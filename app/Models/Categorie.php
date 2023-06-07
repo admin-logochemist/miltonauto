@@ -9,11 +9,12 @@ class Categorie extends Model
 {
     use HasFactory;
     
-    protected $table = "categories";
+    protected $table = "categori";
     protected $primary = "category_id";
     public $timestamps = false;
 
     protected $fillable = [
+        'language_id',
         'name',
         'description',
         'meta_title',
