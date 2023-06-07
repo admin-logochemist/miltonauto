@@ -12,8 +12,8 @@ class CatCtrl extends Controller
     public function CategoryView(){
 
         $data = Categorie::paginate(50);
-        // return view('admin.Category', compact('data'));
-        return view('admin.Category', ['data' => $data]);
+        return view('admin.Category', compact('data'));
+        // return view('admin.Category', ['data' => $data]);
     }
 
     public function AddCategory(Request $req){
