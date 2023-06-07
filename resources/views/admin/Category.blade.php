@@ -62,8 +62,25 @@
   <!-- End Modal Box -->
 
 
+
 <table class="table table-striped">
 <thead>
+  
+  <tr>
+    <td colspan="1"><button type="button" class="btn btn-primary">Total <span class="badge badge-light">{{ $data->count() }}</span> Records</button></td>
+    <td colspan="4">
+
+      <div class="message">
+        @if(Session()->has('success'))
+        <p class="bg-success text-center text-white" style="width: 300px; margin-left: auto; margin-right: auto; line-height: 30px;">{{ Session()->get('success') }}</p>
+        @else
+        <p class="bg-danger text-center">{{ Session()->get('success') }}</p>
+        @endif
+      </div>
+
+    </td>
+  </tr>
+
 <tr class="table_heading">
     <th>Name</th>
     <th>Description</th>
@@ -81,7 +98,10 @@
     <td>{{ $item->meta_title  }}</td>
     <td>{{ $item->meta_description  }}</td>
     
-    <td class="text-center"><button class="btn btn-warning edit" data-id="{{ $item->id }}"><i class="fa fa-edit"></i></button> <button data-id="{{ $item->id }}" href="" class="btn btn-danger delete"><i class="fa fa-trash"></i></button></td>
+    <td class="text-center">
+      <button class="btn btn-warning edit" data-id="{{ $item->category_id }}"><i class="fa fa-edit"></i></button> 
+      <a href='{{ url("admin/deleteCat/") }}/{{$item->category_id}}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
+    </td>
 
     </tr>
 </tbody>
@@ -147,9 +167,29 @@
       });
     });
 
-    $(document).on('click', '.edit', function(){
+    $(document).on('click', '.edit', function(e){
+      e.preventDefault();
       const id = $(this).data('id');
-      alert(id);
+      // alert(id);
+      $('#myModal').slideDown();
     });
+
+    // $(document).on('click', '.delete', function(e){
+    //   e.preventDefault();
+    //   const id = $(this).data('id');
+      
+    //   if(confirm('Really delete this category ?')){
+    //     $.ajax({
+    //       url : `{{ url('admin/deleteCat/${id}') }}`,
+    //       method : 'GET',
+    //       data : {id:id},
+
+    //       success : function(data){
+    //         console.log(data);
+    //       }
+    //     });
+    //   }
+    // });
+
   });
 </script>

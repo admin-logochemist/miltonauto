@@ -54,6 +54,39 @@ a {
     transition: all ease-in-out 0.5s;
 }
 
+.wheel {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #f2f2f2;
+    border-radius: 50%;
+    margin-left: 20px;
+    color: #fff;
+}
+
+.wheel > span {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+}
+
+.first {
+    background: rgb(31, 31, 167);
+    text-align: center;
+}
+
+.second {
+    background: rgb(228, 49, 64);
+    text-align: center;
+}
+
+.third {
+    background: rgb(153, 153, 28);
+}
+
+.fourth {
+    background: green;
+}
+
 .cat_title {
     /* position: sticky;
     top: 70px;

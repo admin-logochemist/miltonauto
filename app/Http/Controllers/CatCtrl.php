@@ -12,7 +12,8 @@ class CatCtrl extends Controller
     public function CategoryView(){
 
         $data = Categorie::paginate(50);
-        return view('admin.Category', compact('data'));
+        // return view('admin.Category', compact('data'));
+        return view('admin.Category', ['data' => $data]);
     }
 
     public function AddCategory(Request $req){
@@ -32,8 +33,16 @@ class CatCtrl extends Controller
         
     }
 
+    public function UpdateCategory(CategoryReq $req){
+
+    }
+
     public function delCat($id){
-        return $id;
+        $delCatQ = Categorie::find($id);
+        $delCat = $delCatQ->delete();
+
+        $response = $delCat ? redirect('admin/category')->with(['success' => 'Record Deleted']) : redirect('admin/category')->with(['error' => 'Record could not be deleted']);
+        return $response;
     }
 
 

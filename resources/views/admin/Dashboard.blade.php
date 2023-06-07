@@ -5,6 +5,38 @@
 @section('content')
 
 <div class="row">
+    <h4><strong>STATISTICS</strong></h4>
+    
+    <div class="col-lg-3 col-md-3 col-sm-12 wheel first">
+        <span> 
+            <h4>Orders</h4> 
+            <h2>300</h2>
+        </span>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 wheel second">
+        <span> 
+            <h4>Revenue</h4> 
+            <h2>$ 50000.00</h2>
+        </span>
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-12 wheel third">
+        <span> 
+            <h4>Customers</h4>
+            <h2>500</h2> 
+        </span>
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-12 wheel fourth">
+        <span> 
+            <h4>4th</h4> 
+            <h2>YtbD</h2>
+        </span>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-lg-10 col-md-10 col-sm-12 sales">
         <h4><strong>ORDERS</strong></h4>
         <div>
@@ -26,7 +58,8 @@
                         <td>MILT_<?php echo time(); ?></td>
                         <td>RAM 1500 STARTER PMGR 12-VOLT, CW 13-TOOTH, 56029652AA SND0800</td>
                         <td>$ 99.9</td>
-                        <td class="text-center"><button class="btn-danger"><i class="fa fa-ban"></i></button></td>
+                        <td class="text-center"><button class="btn-danger"><abbr title="Deliverd"><i class="fa fa-truck"></i></abbr></button>
+                        <button class="btn-info"><abbr title="Deliverd"><i class="fa fa-user"></i></abbr></button></td>
                     </tr>
 
                     <tr>
@@ -34,7 +67,8 @@
                         <td>MILT_<?php echo time(); ?></td>
                         <td>RAM 1500 STARTER PMGR 12-VOLT, CW 13-TOOTH, 56029652AA SND0800</td>
                         <td>$ 99.9</td>
-                        <td class="text-center"><button class="btn-danger"><i class="fa fa-ban"></i></button></td>
+                        <td class="text-center"><button class="btn-danger"><abbr title="Deliverd"><i class="fa fa-truck"></i></abbr></button>
+                        <button class="btn-info"><abbr title="Deliverd"><i class="fa fa-user"></i></abbr></button></td>
                     </tr>
 
                     <tr>
@@ -42,7 +76,8 @@
                         <td>MILT_<?php echo time(); ?></td>
                         <td>RAM 1500 STARTER PMGR 12-VOLT, CW 13-TOOTH, 56029652AA SND0800</td>
                         <td>$ 99.9</td>
-                        <td class="text-center"><button class="btn-danger"><i class="fa fa-ban"></i></button></td>
+                        <td class="text-center"><button class="btn-danger"><abbr title="Deliverd"><i class="fa fa-truck"></i></abbr></button>
+                        <button class="btn-info"><abbr title="Deliverd"><i class="fa fa-user"></i></abbr></button></td>
                     </tr>
 
                     <tr>
@@ -50,7 +85,8 @@
                         <td>MILT_<?php echo time(); ?></td>
                         <td>RAM 1500 STARTER PMGR 12-VOLT, CW 13-TOOTH, 56029652AA SND0800</td>
                         <td>$ 99.9</td>
-                        <td class="text-center"><button class="btn-danger"><i class="fa fa-ban"></i></button></td>
+                        <td class="text-center"><button class="btn-danger"><abbr title="Deliverd"><i class="fa fa-truck"></i></abbr></button>
+                        <button class="btn-info"><abbr title="Deliverd"><i class="fa fa-user"></i></abbr></button></td>
                     </tr>
 
                     <tr>
@@ -58,7 +94,8 @@
                         <td>MILT_<?php echo time(); ?></td>
                         <td>RAM 1500 STARTER PMGR 12-VOLT, CW 13-TOOTH, 56029652AA SND0800</td>
                         <td>$ 99.9</td>
-                        <td class="text-center"><button class="btn-danger"><i class="fa fa-ban"></i></button></td>
+                        <td class="text-center"><button class="btn-danger"><abbr title="Deliverd"><i class="fa fa-truck"></i></abbr></button>
+                        <button class="btn-info"><abbr title="Deliverd"><i class="fa fa-user"></i></abbr></button></td>
                     </tr>
 
                     
@@ -90,7 +127,7 @@
     <div class="col-lg-10 col-md-10 col-sm-12 sales">
         <h4><strong>Monthly Sales Chart</strong></h4>
         <div class="chart_style">
-            <div  style="">
+            <div  style="width: 800px;">
                 <canvas id="myChart"></canvas>
               </div>
               

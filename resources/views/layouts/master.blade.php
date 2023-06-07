@@ -32,9 +32,9 @@
           <div class="col-lg-7 col-md-4 col-sm-12 header-middle">&nbsp;</div>
           <div class="col-lg-3 col-md-4 col-sm-12 text-center user-details">
           @if(auth()->check())
-          <i class="fa fa-user" aria-hidden="true"></i>
-          {{ auth()->user()->name }} 
-          ({{ auth()->user()->roles }})
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <span style="font-size: 12px;">{{ auth()->user()->name }} </span>
+          <span style="font-size: 10px;">({{ auth()->user()->roles }})</span>&nbsp;
           <a href="{{ url('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
           @endif
           </div>
