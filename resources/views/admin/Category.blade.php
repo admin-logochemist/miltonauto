@@ -52,7 +52,9 @@
             </div>
 
             
-            <button type="submit" class="btn btn-default add_cat">Add</button>
+            <button type="submit" class="btn btn-info add_cat">Add</button>
+            <button type="submit" class="btn btn-info upd_cat">Update</button>
+
         </form>
         </div>
       </div>
@@ -126,6 +128,8 @@
 
   $(document).ready(function(){
 
+    $('.upd_cat').hide();
+    
     $('.add_cat').on('click', function(e){
       e.preventDefault();
       
@@ -169,10 +173,22 @@
 
     $(document).on('click', '.edit', function(e){
       e.preventDefault();
+
+      $('.upd_cat').show();
+      $('.add_cat').hide();
+
       const id = $(this).data('id');
       // alert(id);
-      $('#myModal').slideDown();
+      $('#myModal').modal('show');
+      $('.modal-title').html('Edit Category');
+
+      
+      });
+
+
+      
     });
+
 
     // $(document).on('click', '.delete', function(e){
     //   e.preventDefault();
@@ -191,5 +207,5 @@
     //   }
     // });
 
-  });
+  // });
 </script>

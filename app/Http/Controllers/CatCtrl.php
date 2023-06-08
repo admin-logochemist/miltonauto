@@ -33,7 +33,9 @@ class CatCtrl extends Controller
         
     }
 
-    public function UpdateCategory(CategoryReq $req){
+    public function UpdateCategory($id){
+        $CatRec = Categorie::find($id);
+        dd($CatRec);
 
     }
 

@@ -31,7 +31,12 @@ class CategoryReq extends FormRequest
                 'meta_description' => 'required'
             ];
         }elseif(request()->isMethod('put')){
-
+            return [
+                'name' => 'required',
+                'description' => 'required',
+                'meta_title' => 'required',
+                'meta_description' => 'required'
+            ];
         }
     }
 }

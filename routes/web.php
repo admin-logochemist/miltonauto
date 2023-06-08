@@ -52,6 +52,7 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('admin/category',[CatCtrl::class,'CategoryView'])->name('catRoute');
     Route::post('admin/add-category',[CatCtrl::class,'AddCategory'])->name('addcatRoute');
     Route::get('admin/deleteCat/{id}',[CatCtrl::class,'DelCat'])->name('delCat');
+    Route::get('admin/editCat/{id}',[CatCtrl::class,'CatRec'])->name('GetCatRecRoute');
 
     Route::get('admin/products',[PrdCtrl::class,'ProductView'])->name('prdRoute');
     
