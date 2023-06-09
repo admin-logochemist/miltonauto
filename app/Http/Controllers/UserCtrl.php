@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginReq;
 
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Mail;
 class UserCtrl extends Controller
 {
@@ -14,14 +14,14 @@ class UserCtrl extends Controller
     // Admin Sign Up
     public function SignUp(){
         $UserSignedUp = User::insert([
-            'name' => 'Admin 5',
-            'email' => 'admin5@miltonauto.com',
+            'name' => 'Admin',
+            'email' => 'admin@miltonauto.com',
             'password' => Hash::make('1234Abcd'),
             'roles' => 'admin'
         ]);
 
-        // $data = ['name' => 'Ali', 'salute' => 'Dear Subscriber', 'msg' => 'We Welcome you at Milton Auto'];
-        // $user['to'] = 'kevinchemist034@gmail.com';
+        $data = ['name' => 'Ali', 'salute' => 'Dear Subscriber', 'msg' => 'We Welcome you at Milton Auto'];
+        $user['to'] = 'magjcd@gmail.com';
 
         // if($UserSignedUp){
         //     Mail::send('signupemail',$data,function($message) use ($user){
