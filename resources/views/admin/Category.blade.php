@@ -102,8 +102,7 @@
     
     <td class="text-center">
       <button class="btn btn-warning edit" data-id="{{ $item->category_id }}"><i class="fa fa-edit"></i></button> 
-      <a href='{{ url("admin/deleteCat/") }}/{{$item->id}}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
-    <a href='{{ route("login") }}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
+      <a href='{{ url("admin/deleteCat/") }}/{{$item->category_id}}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
     </td>
 
     </tr>
