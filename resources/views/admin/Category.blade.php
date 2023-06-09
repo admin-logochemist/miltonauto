@@ -27,9 +27,14 @@
           
         <form id="prd_cat">
           @csrf
+
+            <div class="form-group">
+              <input type="hidden" class="form-control" id="id" name="id" value="">
+            </div>
+
             <div class="form-group">
                 <label for="name">Category Name:</label>
-                <input type="name" class="form-control" id="name" placeholder="Category Name" name="name">
+                <input type="name" class="form-control" id="name" name="name" value="" />
                 <span class="name bg-danger text-center"></span>
             </div>
 
@@ -41,7 +46,7 @@
 
             <div class="form-group">
                 <label for="meta_title">Meta Title</label>
-                <input type="text" class="form-control" id="meta_title" placeholder="Meta Title" name="meta_title">
+                <input type="text" class="form-control" id="meta_title" name="meta_title" value="" />
                 <span class="meta_title bg-danger"></span>
             </div>
 
@@ -104,7 +109,6 @@
       <button class="btn btn-warning edit" data-id="{{ $item->category_id }}"><i class="fa fa-edit"></i></button> 
       <a href='{{ url("admin/deleteCat/") }}/{{$item->category_id}}' class="btn btn-danger"><i class="fa fa-trash"></i></a>
     </td>
-
     </tr>
 </tbody>
 
@@ -154,6 +158,10 @@
           if(data.response){
             $('.message').css('display','none');
             $('.message').html(JSON.parse(JSON.stringify(data.response))).slideDown().delay(3000).slideUp();
+
+            setTimeout(() => {
+              location.replace('http://127.0.0.1:8000/admin/category');
+            }, 5000);
             
           }else{
             const name = data.validation_error.name;
@@ -182,23 +190,81 @@
       $('#myModal').modal('show');
       $('.modal-title').html('Edit Category');
 
-      
+      const editRoute = ('editCat/'+id);
+      $.ajax({
+        url: editRoute,
+        method: 'GET',
+
+        success: function(data){
+          console.log(data);
+          $('#id').val(id);
+          $('#name').val(data.name);
+          $('#description').val(data.description);
+          $('#meta_title').val(data.meta_title);
+          $('#meta_description').val(data.meta_description);
+
+        }
       });
-
-
       
     });
 
+    $('.upd_cat').on('click', function(e){
+      e.preventDefault();
+
+      let _token = $("input[name='_token']").val();
+      let name = $("#name").val();
+      let description = $("#description").val();
+      let meta_title = $("#meta_title").val();
+      let meta_description = $("#meta_description").val();
+
+      const id = $('#id').val();
+      const UpdateRoute = ("updateCat/"+id);
+      
+      $.ajax({
+        url: UpdateRoute,
+        method: 'PUT',
+        data: {
+          _token:_token,
+          name:name,
+          description:description,
+          meta_title:meta_title,
+          meta_description:meta_description
+        },
+
+        success: function(data){
+          if(data.response){
+            $('.message').css('display','none');
+            $('.message').html(JSON.parse(JSON.stringify(data.response))).slideDown().delay(3000).slideUp();
+            setTimeout(() => {
+              location.replace('http://127.0.0.1:8000/admin/category');
+            }, 5000);
+            
+          }else{
+            const name = data.validation_error.name;
+            const description = data.validation_error.description;
+            const meta_title = data.validation_error.meta_title;
+            const meta_description = data.validation_error.meta_description;
+
+            $('.name').html(name);
+            $('.description').html(description);
+            $('.meta_title').html(meta_title);
+            $('.meta_description').html(meta_description);
+          }
+
+        }
+      });
+
+    });
 
     // $(document).on('click', '.delete', function(e){
     //   e.preventDefault();
     //   const id = $(this).data('id');
       
     //   if(confirm('Really delete this category ?')){
+    //     const delCatRoute = ('deleteCat/'+id);
     //     $.ajax({
-    //       url : `{{ url('admin/deleteCat/${id}') }}`,
+    //       url : delCatRoute,
     //       method : 'GET',
-    //       data : {id:id},
 
     //       success : function(data){
     //         console.log(data);
@@ -207,5 +273,5 @@
     //   }
     // });
 
-  // });
+  });
 </script>

@@ -1,0 +1,30 @@
+body {
+    background: var(--body-color);
+
+    background-image: url("../images/templateImages/shop/main-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.5; */
+    width: auto;
+    height: 900px;
+}
+
+:root {
+    /* --primary: #00394d; */
+    --primary: #1C1919;
+    --body-color: #d9d9d9;
+}
+
+.main {
+    background: #fff;
+    opacity: 0.8;
+    height: 300px;
+    border-radius: 3px;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+
+}

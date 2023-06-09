@@ -14,10 +14,10 @@ class UserCtrl extends Controller
     // Admin Sign Up
     public function SignUp(){
         $UserSignedUp = User::insert([
-            'name' => 'Admin 5',
-            'email' => 'admin5@miltonauto.com',
+            'name' => 'User',
+            'email' => 'user@miltonauto.com',
             'password' => Hash::make('1234Abcd'),
-            'roles' => 'admin'
+            'roles' => 'user'
         ]);
 
         // $data = ['name' => 'Ali', 'salute' => 'Dear Subscriber', 'msg' => 'We Welcome you at Milton Auto'];
@@ -39,12 +39,16 @@ class UserCtrl extends Controller
         $validated = $req->validated();
 
         if(auth()->attempt($validated)){
-            return redirect()->route(route: 'adminDashboard');
+            if(auth()->user()->roles == 'admin'){
+                return redirect()->route(route: 'adminDashboard');
+            }else{
+                return redirect()->route(route: 'login')->with('message','Invalid Credentials, you are not an admin');
+            }
         }
         return redirect()->route(route: 'login')->with('message','Invalid Credentials');
     }
 
     public function AdminDashboard(){
-        return view(view: 'admin/Dashboard');
+        return view(view: 'admin.Dashboard');
     }
 }

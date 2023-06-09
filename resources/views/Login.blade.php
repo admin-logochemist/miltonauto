@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="{{ url('css/login-style.css') }}" rel="stylesheet" />
 </head>
 <body>
 
@@ -21,7 +22,8 @@
     <hr />
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12"></div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 main">
             <h2 class=" text-center">Admin Login</h2>
             <h4 class="bg-danger text-center" style="line-height: 50px;">
                 @if(\Session()->has('message'))
@@ -46,9 +48,10 @@
                 <label><input type="checkbox" name="remember"> Remember me</label>
                 </div> -->
                 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button> &nbsp; <a href="#" style="position: absolute; right:10px;">Forgot Password</a>
             </form>
         </div>
+        
         <div class="col-lg-3 col-md-6 col-sm-12"></div>
     </div>
 

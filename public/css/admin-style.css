@@ -5,13 +5,14 @@ body {
 
 :root {
     /* --primary: #00394d; */
-    --primary: #00394d;
+    --primary: #1C1919;
     --body-color: #d9d9d9;
 }
 
 .header {
     position: sticky;
     top: 0;
+    background: var(--primary);
     z-index: 1;
 }
 .header > .header-middle, .user-details, .sidebar{
@@ -20,16 +21,17 @@ body {
     line-height: 70px;
 }
 
+.header-middle {
+    margin-top: 20px;
+}
+
 a {
     text-decoration: none;
     color: #fff;
 }
 
 .sidebar {
-    /* position: fixed;
-    left: 0;
-    height: 100%;
-    float: right; */
+    border-radius: 20px;
 }
 
 .content {
@@ -43,15 +45,23 @@ a {
 }
 
 .sidebar > ul > a > li {
-    font-size: 10px;
-    font-weight: lighter;
-    border-bottom: 1px solid #fff;
-    margin-left: -50px;
+    font-size: 15px;
+    font-weight: bolder;
+    list-style: none;
+    border-radius: 10px;
+    margin-left: -40px;
+    text-align: center;
 }
 
 .sidebar > ul > a > li:hover {
-    color: #fff;
-    transition: all ease-in-out 0.5s;
+    color: #363030;
+    text-decoration: none;
+    /* font-size: 15px;
+    text-align: center;
+    font-weight: bold; 
+    transform:translateY(5px);
+    transition: all ease-in-out 0.5s; */
+    background-color: #fff;
 }
 
 .wheel {
@@ -109,3 +119,9 @@ a {
     line-height: 50px;
 }
 
+@media only screen and (max-width: 900px) {
+    .header {
+        position: sticky;
+        top: 0px;
+    }
+}

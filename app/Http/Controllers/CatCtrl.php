@@ -33,9 +33,31 @@ class CatCtrl extends Controller
         
     }
 
-    public function UpdateCategory($id){
+    public function CatRec($id){
         $CatRec = Categorie::find($id);
-        dd($CatRec);
+        return $CatRec;
+    }
+
+    public function UpdateCat(Request $req){
+        $validate = Validator::make($req->all(),[
+            'name' => 'required',
+            'description' => 'required',
+            'meta_title' => 'required',
+            'meta_description' => 'required'
+        ]);
+        if($validate->passes()){
+            $UpdateCatRec = Categorie::find($req->id);
+
+            $UpdateCatRec->name = $req->name;
+            $UpdateCatRec->description = $req->description;
+            $UpdateCatRec->meta_title = $req->meta_title;
+            $UpdateCatRec->meta_description = $req->meta_description;
+
+            $data = $UpdateCatRec->save();
+            $response = $data ? response()->json(['response' => 'category updated'],201) : response()->json(['error' => 'category could not be updated'],401);
+            return $response;
+        }
+        return response()->json(['validation_error' => $validate->errors()]);
 
     }
 
