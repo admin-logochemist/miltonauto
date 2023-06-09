@@ -48,7 +48,12 @@
                 <label><input type="checkbox" name="remember"> Remember me</label>
                 </div> -->
                 
+<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary">Login</button> &nbsp; <a href="#" style="position: absolute; right:10px;">Forgot Password</a>
+=======
+                <button type="submit" class="btn btn-primary">Login</button>
+                
+>>>>>>> a60f9e561500359ce9110890b168132cd64dd857
             </form>
         </div>
         
