@@ -14,13 +14,13 @@ class UserCtrl extends Controller
     // Admin Sign Up
     public function SignUp(){
         $UserSignedUp = User::insert([
-<<<<<<< HEAD
+
             'name' => 'User',
             'email' => 'user@miltonauto.com',
-=======
+
             'name' => 'Admin',
             'email' => 'admin@miltonauto.com',
->>>>>>> a60f9e561500359ce9110890b168132cd64dd857
+
             'password' => Hash::make('1234Abcd'),
             'roles' => 'user'
         ]);
