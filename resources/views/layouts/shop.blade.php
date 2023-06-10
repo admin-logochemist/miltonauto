@@ -28,10 +28,10 @@
       <div class="row header">
           
           <!-- <div class="col-lg-3 col-md-4 col-sm-12" style="border: 1px solid #000;"><img src="../../../storage/app/public/images/templateImages/weblogo.png" ></div> -->
-          <div class="col-lg-2 col-md-4 col-sm-12 text-center"><a href="http://127.0.0.1:8000/admin/dashboard/"><img src="{{ url('/images/templateImages/milton_logo.png')}}" style="width: auto; height: 70px;"></a></div>
+          <div class="col-lg-2 col-md-4 col-sm-12 text-center"><a href="http://127.0.0.1:8000/"><img src="{{ url('/images/templateImages/milton_logo.png')}}" style="width: auto; height: 70px;"></a></div>
           
           <div class="col-lg-7 col-md-4 col-sm-12 header-middle">
-            <input type="text" class="form-control" id="search" name="search" />
+            <input type="text" class="form-control" id="search" name="search" placeholder="Shop....." />
             {{-- <button><i class="fa fa-search"></i></button> --}}
           </div>
           <div class="col-lg-3 col-md-4 col-sm-12 text-center">
@@ -69,7 +69,7 @@
 
     @section('footer')
     <div class="footer text-center">
-      Copy Right &copy; 2023-<?php echo date('Y'); ?>
+      Copy Right &copy; 2023-<?php //echo date('Y'); ?>
     </div>
     @show
     </div> --}}

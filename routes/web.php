@@ -49,10 +49,10 @@ Route::get('logout', function(){
 });
 
 Route::get('/', function(){
-    if(auth()->check()){
+    // if(auth()->check()){
         return view('welcome');
-    }
-    return view('Login');
+    // }
+    // return view('Login');
 });
 
 Route::get('signup',[UserCtrl::class,'SignUp']);
